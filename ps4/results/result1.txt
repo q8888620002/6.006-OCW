@@ -1,0 +1,23 @@
+ ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+337704776  221.084    0.000  221.084    0.000 dnaseqlib.py:45(incr)
+        1  218.223  218.223  582.949  582.949 dnaseqlib.py:61(buildComparisonImage)
+337704777   84.978    0.000  142.301    0.000 dnaseq.py:58(getExactSubmatches)
+  4999884   20.563    0.000   24.256    0.000 dnaseqlib.py:14(__init__)
+  4999886   18.887    0.000   46.856    0.000 dnaseq.py:40(subsequenceHashes)
+  9999804    5.393    0.000    5.562    0.000 kfasta.py:21(next)
+ 39999155    3.209    0.000    3.209    0.000 {ord}
+  4999779    2.987    0.000    4.467    0.000 dnaseq.py:27(get)
+  7499721    2.423    0.000    2.423    0.000 {method 'has_key' of 'dict' objects}
+        1    2.241    2.241   30.606   30.606 dnaseq.py:14(__init__)
+  2499942    2.196    0.000    3.759    0.000 dnaseq.py:20(put)
+        2    1.647    0.823    4.419    2.209 kfasta.py:33(getSequenceLength)
+  4999884    0.818    0.000    0.818    0.000 dnaseqlib.py:25(current_hash)
+  2437607    0.620    0.000    0.620    0.000 {method 'append' of 'list' objects}
+5003605/5003559    0.484    0.000    0.484    0.000 {len}
+   250000    0.249    0.000    0.649    0.000 Image.py:1468(putpixel)
+   250002    0.215    0.000    0.267    0.000 Image.py:739(load)
+        3    0.203    0.068    0.203    0.068 {method 'encode' of 'ImagingEncoder' objects}
+   250000    0.140    0.000    0.140    0.000 dnaseqlib.py:49(get)
+   250000    0.138    0.000    0.191    0.000 dnaseqlib.py:61(<lambda>)
+   200004    0.137    0.000    0.137    0.000 {method 'readline' of 'file' objects}
+   250000    0.133    0.000    0.133    0.000 {method 'putpixel' of 'ImagingCore' objects}

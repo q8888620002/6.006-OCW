@@ -1,0 +1,31 @@
+0.397669
+The distance between the documents is: 0.574160 (radians)
+         653297 function calls (629533 primitive calls) in 0.362 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.002    0.002    0.362    0.362 <string>:1(<module>)
+    11882    0.122    0.000    0.165    0.000 docdist6.py:105(merge)
+        2    0.000    0.000    0.334    0.167 docdist6.py:144(word_frequencies_for_file)
+        3    0.019    0.006    0.022    0.007 docdist6.py:155(inner_product)
+        1    0.000    0.000    0.022    0.022 docdist6.py:181(vector_angle)
+        1    0.004    0.004    0.360    0.360 docdist6.py:191(main)
+        2    0.000    0.000    0.002    0.001 docdist6.py:39(read_file)
+        2    0.015    0.008    0.066    0.033 docdist6.py:51(get_words_from_line_list)
+    22663    0.014    0.000    0.045    0.000 docdist6.py:68(get_words_from_string)
+        2    0.062    0.031    0.072    0.036 docdist6.py:81(count_frequency)
+  23766/2    0.026    0.000    0.193    0.097 docdist6.py:93(merge_sort)
+   379482    0.031    0.000    0.031    0.000 {len}
+        1    0.000    0.000    0.000    0.000 {math.acos}
+        1    0.000    0.000    0.000    0.000 {math.sqrt}
+   135610    0.016    0.000    0.016    0.000 {method 'append' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+    34545    0.007    0.000    0.007    0.000 {method 'extend' of 'list' objects}
+        2    0.010    0.005    0.010    0.005 {method 'items' of 'dict' objects}
+        2    0.002    0.001    0.002    0.001 {method 'readlines' of 'file' objects}
+    22663    0.026    0.000    0.026    0.000 {method 'split' of 'str' objects}
+    22663    0.006    0.000    0.006    0.000 {method 'translate' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 {open}
+
+

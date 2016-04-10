@@ -1,0 +1,28 @@
+49.624235
+The distance between the documents is: 0.574160 (radians)
+         3354148 function calls in 49.290 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.005    0.005   49.290   49.290 <string>:1(<module>)
+        2    0.000    0.000   40.165   20.083 docdist1.py:100(word_frequencies_for_file)
+        3    9.115    3.038    9.115    3.038 docdist1.py:110(inner_product)
+        1    0.000    0.000    9.115    9.115 docdist1.py:125(vector_angle)
+        1    0.004    0.004   49.285   49.285 docdist1.py:135(main)
+        2    0.000    0.000    0.003    0.001 docdist1.py:37(read_file)
+        2   21.487   10.744   23.087   11.544 docdist1.py:49(get_words_from_line_list)
+    22663    1.022    0.000    1.600    0.000 docdist1.py:61(get_words_from_string)
+        2   17.073    8.536   17.075    8.538 docdist1.py:86(count_frequency)
+   325087    0.045    0.000    0.045    0.000 {len}
+        1    0.000    0.000    0.000    0.000 {math.acos}
+        1    0.000    0.000    0.000    0.000 {math.sqrt}
+  1241849    0.210    0.000    0.210    0.000 {method 'append' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+  1300248    0.178    0.000    0.178    0.000 {method 'isalnum' of 'str' objects}
+   232140    0.070    0.000    0.070    0.000 {method 'join' of 'str' objects}
+   232140    0.077    0.000    0.077    0.000 {method 'lower' of 'str' objects}
+        2    0.002    0.001    0.002    0.001 {method 'readlines' of 'file' objects}
+        2    0.000    0.000    0.000    0.000 {open}
+
+

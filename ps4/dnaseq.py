@@ -33,35 +33,54 @@ class Multidict:
 # Given a sequence of nucleotides, return all k-length subsequences
 # and their hashes.  (What else do you need to know about each
 # subsequence?)
-# param string of seq 
-# param number of length
-# return k-length subsequence , hash(k- length-seq), index of the start subsequence
+# @param string of seq 
+# @param number of length
+# @return k-length subsequence , hash(k- length-seq), index of the start subsequence
 
 def subsequenceHashes(seq, k):
-    list_seq = list(seq)   
-    split_string = [ [list_seq[i:k+i], i] for i in range(len(list_seq) - k )]
-    for i in split_string:
-        hash = RollingHash(i[0]).current_hash()
-        yield hash, i[1]
+    assert k > 0
+    try:     
+        list_seq = list(seq)   
+        split_string = [ [list_seq [i:k+i], i] for i in range(len(list_seq) - k )]
         
+        hash = RollingHash(split_string[0][0])
+        
+        for i , j in split_string:
+            if(j == 0):
+                skip_char = i[0]
+                yield hash.current_hash() , j
+            else:
+                hash.slide(skip_char,i[k-1])
+                skip_char = i[0]
+                yield  hash.current_hash(), j
+    except StopIteration:
+        return 
         
 # Similar to subsequenceHashes(), but returns one k-length subsequence
 # every m nucleotides.  (This will be useful when you try to use two
-# whole data files.)
+# whole data files.). 
 def intervalSubsequenceHashes(seq, k, m):
-    raise Exception("Not implemented!")
-
+    assert m >= k
+    try:
+        list_seq = list(seq)   
+        k_length_seq = [[list_seq [i:i+k ], i] for i in range(0, len(list_seq) -k, m)]
+        for i, j in k_length_seq:
+            hash = RollingHash(i).current_hash()
+            yield hash, j 
+    except StopIteration:
+        return  
+    
 # Searches for commonalities between sequences a and b by comparing
 # subsequences of length k.  The sequences a and b should be iterators
 # that return nucleotides.  The table is built by computing one hash
 # every m nucleotides (for m >= k).
 def getExactSubmatches(a, b, k, m):
+    hash_table = Multidict(intervalSubsequenceHashes(a, k, m))
     seq_b = list(subsequenceHashes(b, k))
-    data = Multidict(subsequenceHashes(a, k))
-
+    
     for hash_b , index_b in seq_b:
-        if data.get(hash_b):
-            for index_a in data.get(hash_b):
+        if hash_table.get(hash_b):
+            for index_a in hash_table.get(hash_b):
                 yield (index_a , index_b)
 
 if __name__ == '__main__':

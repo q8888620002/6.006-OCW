@@ -1,4 +1,6 @@
 from dnaseq import *
+import unittest
+from wheel.signatures import assertTrue
 
 ### Testing ###
 
@@ -53,5 +55,11 @@ class TestExactSubmatches(unittest.TestCase):
        self.assertTrue(len(matches) == len(correct))
        for x in correct:
            self.assertTrue(x in matches)
+
+class TestIntervalsub(unittest.TestCase):
+    def test_one(self):
+        foo = 'absdfasdfasdf'
+        result = ['abs','asd','sdf']
+        assertTrue(intervalSubsequenceHashes(foo,3 , 5), result)
 
 unittest.main()

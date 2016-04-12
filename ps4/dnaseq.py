@@ -48,11 +48,11 @@ def subsequenceHashes(seq, k):
         for i , j in split_string:
             if(j == 0):
                 skip_char = i[0]
-                yield hash.current_hash() , j
+                yield (hash.current_hash() , (j, i))
             else:
                 hash.slide(skip_char,i[k-1])
                 skip_char = i[0]
-                yield  hash.current_hash(), j
+                yield  (hash.current_hash() , (j, i))
     except StopIteration:
         return 
         
@@ -66,7 +66,7 @@ def intervalSubsequenceHashes(seq, k, m):
         k_length_seq = [[list_seq [i:i+k ], i] for i in range(0, len(list_seq) -k, m)]
         for i, j in k_length_seq:
             hash = RollingHash(i).current_hash()
-            yield hash, j 
+            yield ( hash, (j, i) )
     except StopIteration:
         return  
     
@@ -76,12 +76,13 @@ def intervalSubsequenceHashes(seq, k, m):
 # every m nucleotides (for m >= k).
 def getExactSubmatches(a, b, k, m):
     hash_table = Multidict(intervalSubsequenceHashes(a, k, m))
-    seq_b = list(subsequenceHashes(b, k))
+    seq_b = (subsequenceHashes(b, k))
     
-    for hash_b , index_b in seq_b:
+    for hash_b , (index_b,subseq_b ) in seq_b:
         if hash_table.get(hash_b):
-            for index_a in hash_table.get(hash_b):
-                yield (index_a , index_b)
+            for  index_a, subseq_a  in hash_table.get(hash_b):
+                if(subseq_b == subseq_a):
+                    yield (index_a , index_b)
 
 if __name__ == '__main__':
     if len(sys.argv) != 4:
